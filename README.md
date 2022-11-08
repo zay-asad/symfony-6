@@ -17,3 +17,4 @@
 - `composer require maker`
 
 - Create a new Controller: `symfony console make:controller MoviesController`
+- Stop Server: `symfony server:stop`
