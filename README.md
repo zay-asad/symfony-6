@@ -18,3 +18,4 @@
 
 - Create a new Controller: `symfony console make:controller MoviesController`
 - Stop Server: `symfony server:stop`
+- Check existing routes available in the application: `symfony console debug:router`
