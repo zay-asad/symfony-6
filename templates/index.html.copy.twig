@@ -1,0 +1,11 @@
+{#<h1>#}
+{#    Welcome to this Symfony page:  {{title}}#}
+{#</h1>#}
+
+{% if title %}
+    <p>{{ title }} is a movie</p>
+{% else %}
+    <p> No title has been set :(</p>
+{% endif %}
+
+{#{{ dump(title) }} print out information about the title #}

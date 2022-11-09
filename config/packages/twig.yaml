@@ -1,5 +1,7 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
+    globals:
+        author: Symfony 6
 
 when@test:
     twig:
