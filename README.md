@@ -15,6 +15,7 @@
 - `composer require annotations`
 - `composer require doctrine maker`
 - `composer require maker`
+- `composer require twig`
 
 - Create a new Controller: `symfony console make:controller MoviesController`
 - Stop Server: `symfony server:stop`
