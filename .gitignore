@@ -13,3 +13,6 @@
 
 docker-compose.yml
 docker-compose.override.yml
+
+###< doctrine migrations ###
+migrations
