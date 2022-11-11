@@ -14,6 +14,8 @@ The Controller – acts as an interface between the Model & The View to process 
 
 ## Symfony 6 project setup
 
+- Mamp is up and running and the port numbers should match the local env settings for this project.
+
 - Install Symfony CLI: `brew install symfony-cli/tap/symfony-cli`
 
 - Install PHP 8: `use custom alias to switch version`
