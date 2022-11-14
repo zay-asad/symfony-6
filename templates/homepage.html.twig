@@ -1,7 +1,16 @@
 {% extends "base.html.twig" %} {# inherit base template by extending it #}
 
+
+{# override default title "Welcome!" from base template #}
+{% block title %}
+This is the homepage.
+{% endblock %}
+
+
+
 {% block body %}
 
     <h2>{{ homepage }}</h2>
 
 {% endblock %}
+

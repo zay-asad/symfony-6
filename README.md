@@ -74,3 +74,17 @@ The Controller – acts as an interface between the Model & The View to process 
 
 - Once the migration is completed, the DB should be updated with the new tables.
 
+
+### 📦 Doctrine relationships https://symfony.com/doc/current/doctrine/associations.html
+- ManyToOne e.g. many students are working on one 'university project' / one 'university project' has many 'students' that work on the project
+- OneToMany e.g. one 'Country' has many 'States' / one 'State' is located in only one 'Country'
+- OneToOne e.g. one 'Car' has one 'steering wheel' / one 'steering wheel' inside one 'Car'
+- ManyToMany e.g. many movies have many actors
+
+
+### Load dummy data into the DB
+- `composer require --dev doctrine/doctrine-fixtures-bundle`
+- `doctrine:fixtures:load`
+- Load data into DataFixtures
+`doctrine:fixtures:load`
+- New data is now inserted in the DB!
