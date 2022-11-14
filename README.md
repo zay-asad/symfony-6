@@ -45,7 +45,7 @@ The Controller – acts as an interface between the Model & The View to process 
 
 - `composer require symfony/orm-pack`
 - `composer require --dev symfony/maker-bundle` - press no (to move this requirement) and then yes at the second promp)
-- Also need to have MAMP running locally and change the .env settings in the project.
+- Also need to have MAMP running locally and change the .env settings in the project to match the correct port.
 
 - Install the `Database Client` VSCode Extension to view DBs 
 - Create a new entity: `symfony console make:entity`
