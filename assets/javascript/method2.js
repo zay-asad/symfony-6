@@ -1,1 +1,1 @@
-alert('1234');
+console.log('logging out method2');
