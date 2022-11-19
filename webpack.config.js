@@ -72,6 +72,13 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
-    ;
+
+    // required for tailwind
+    .enablePostCssLoader((options) => {
+        options.postcssOptions = {
+            config: './postcss.config.js'
+        }
+    });
+;
 
 module.exports = Encore.getWebpackConfig();

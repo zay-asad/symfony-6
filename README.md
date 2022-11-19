@@ -107,3 +107,15 @@ Add this line in your base twig template (this is referencing the build folder o
             <link rel="stylesheet" href="{{ asset('build/app.css') }}">
         {% endblock %}
 ```
+
+### Installing tailwind 3
+`npm install -D tailwindcss postcss-loader purgecss-webpack-plugin glob-all path`
+`npx tailwindcss init -p`
+Add `enablePostCssLoader` in webpack.config.js
+### Compile tailwind based on the changes you've made e.g. styles>app.css
+
+`npx tailwindcss -i ./assets/styles/app.css -o ./public/build/app.css --watch`
+
+All new tailwind classes will be compiled in public>build>app.css
+
+
