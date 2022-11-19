@@ -1,16 +1,12 @@
 {% extends "base.html.twig" %} {# inherit base template by extending it #}
 
-
 {# override default title "Welcome!" from base template #}
 {% block title %}
 This is the homepage.
 {% endblock %}
 
 
-
 {% block body %}
-
-
     <h1 class="text-white bg-violet-900 text-2xl text-center hover:bg-violet-700 font-bold">Welcome to the homepage styled with tailwind UI.</h1>
 
     <br>
@@ -18,19 +14,11 @@ This is the homepage.
 
     <h2 class="bg-green-400">
         {{homepage}}
-        
     </h2>
 
     <p>
         Full path is available here:
-        <span class="bg-green-400">{{path}}>
+        <span class="bg-green-400">{{path}}</span>
     <p>
-
-
-
-    {# <h1>{{ homepage }}</h1> #}
-
-    
-
 {% endblock %}
 
