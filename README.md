@@ -90,3 +90,20 @@ The Controller – acts as an interface between the Model & The View to process 
 
 ### Repository
 - This is the only part of the application that interacts with the DB. 
+
+### Compile CSS & JS
+Webpack Encore is a simpler way to integrate Webpack into your application. It wraps Webpack, giving you a clean & powerful API for bundling JavaScript modules, pre-processing CSS & JS and compiling and minifying assets.
+- `composer require symfony/webpack-encore-bundle`
+`npm install webpack-notifier@^1.6.0 --save-dev`
+
+Everytime you make a change to the .css or .js file you need to compile your assets first:
+`npm run dev`
+
+Manage assets
+`composer require symfony/asset`
+
+Add this line in your base twig template (this is referencing the build folder once an asset has been compiled)
+```{% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+        {% endblock %}
+```
