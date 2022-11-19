@@ -16,7 +16,8 @@ class HomepageController extends AbstractController
         $homepage = "Welcome from HomepageController.php!";
 
         return $this->render('homepage.html.twig', [
-            'homepage' => $homepage
+            'homepage' => $homepage,
+            'path' => 'src/Controller/HomepageController.php'
         ]);
     }
 }
