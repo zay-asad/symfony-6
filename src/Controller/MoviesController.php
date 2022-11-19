@@ -11,9 +11,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MoviesController extends AbstractController
 {
-
-
-
     /** passing in a route parameter for my controller /movies/{name}
      *  I've also assigned a default parameter in case we just type /movies in the browser -> null
      *  I've also assigned a GET, HEAD as methods -> these can be viewed by checking the `symfony console debug:router`
@@ -54,10 +51,11 @@ class MoviesController extends AbstractController
     #[Route('/movies', name: 'movies')]
     public function index(): Response
     {
-        // findAll() - SELECT * FROM movies;
         $repository = $this->em->getRepository(Movie::class);
+        // $movies = $repository->getClassName();
         //find all movies from the repository
-        $movies = $repository->find(1);
+        $movies = $repository->findAll();
+
         //similar to var dump - dump&die helper function
         dd($movies);
 
