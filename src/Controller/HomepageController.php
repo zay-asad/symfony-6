@@ -13,7 +13,7 @@ class HomepageController extends AbstractController
     public function index(): Response
     {
         //storing in variable
-        $homepage = "Welcome to the homepage!!!!";
+        $homepage = "Welcome from HomepageController.php!";
 
         return $this->render('homepage.html.twig', [
             'homepage' => $homepage
