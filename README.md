@@ -82,16 +82,16 @@ The Controller – acts as an interface between the Model & The View to process 
 - ManyToMany e.g. many movies have many actors
 
 
-### Load dummy data into the DB
+### 📦 Load dummy data into the DB
 - `composer require --dev doctrine/doctrine-fixtures-bundle`
 - `symfony console doctrine:fixtures:load`
 - Load data into DataFixtures: `symfony console doctrine:fixtures:load`
 - New data is now inserted in the DB!
 
-### Repository
+### 📦 Repository
 - This is the only part of the application that interacts with the DB. 
 
-### Compile CSS & JS
+### 🎨 Compile CSS & JS
 Webpack Encore is a simpler way to integrate Webpack into your application. It wraps Webpack, giving you a clean & powerful API for bundling JavaScript modules, pre-processing CSS & JS and compiling and minifying assets.
 - `composer require symfony/webpack-encore-bundle`
 `npm install webpack-notifier@^1.6.0 --save-dev`
@@ -108,11 +108,11 @@ Add this line in your base twig template (this is referencing the build folder o
         {% endblock %}
 ```
 
-### Installing tailwind 3
+### 🎨 Installing tailwind 3
 `npm install -D tailwindcss postcss-loader purgecss-webpack-plugin glob-all path`
 `npx tailwindcss init -p`
 Add `enablePostCssLoader` in webpack.config.js
-### Compile tailwind based on the changes you've made e.g. styles>app.css
+### 🎨 Compile tailwind based on the changes you've made e.g. styles>app.css
 
 `npx tailwindcss -i ./assets/styles/app.css -o ./public/build/app.css --watch`
 
