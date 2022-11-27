@@ -36,6 +36,18 @@ class MovieFixtures extends Fixture
         //insert in DB using ObjectManager
         $manager->persist($movie2);
 
+        $movie3 = new Movie();
+        $movie3->setTitle('Spider-Man: No Way Home');
+        $movie3->setReleaseYear(2021);
+        $movie3->setDescription('The new spiderman movie!');
+        $movie3->setImagePath('https://cdn.pixabay.com/photo/2014/11/03/13/33/spiderman-515215_1280.jpg');
+
+        $movie3->addActor($this->getReference('actor_3'));
+        $movie3->addActor($this->getReference('actor_4'));
+
+        //insert in DB using ObjectManager
+        $manager->persist($movie3);
+
         //this allows both queries to be executed at the same time
         $manager->flush();
 

@@ -85,6 +85,7 @@ The Controller – acts as an interface between the Model & The View to process 
 ### 📦 Load dummy data into the DB
 - `composer require --dev doctrine/doctrine-fixtures-bundle`
 - `symfony console doctrine:fixtures:load`
+- Create objects into your Repository and then run the load command
 - Load data into DataFixtures: `symfony console doctrine:fixtures:load`
 - New data is now inserted in the DB!
 
