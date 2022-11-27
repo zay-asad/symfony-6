@@ -127,3 +127,4 @@ Add copyImages method inside webpack.config
 
 
 
+

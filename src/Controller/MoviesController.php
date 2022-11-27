@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Actor;
 use App\Entity\Movie;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\MovieRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -42,23 +43,44 @@ class MoviesController extends AbstractController
     
     //setting a new property for EntityManager
     private $em;
-    public function __construct(EntityManagerInterface $em)
+
+    //connecting to movieRepository
+    private $movieRepository;
+
+    public function __construct(EntityManagerInterface $em, MovieRepository $movieRepository)
     {
         $this->em = $em;
+        $this->movieRepository = $movieRepository;
     }
 
-// ---- refactored with repositories 
-    #[Route('/movies', name: 'movies')]
+
+    // all movies route
+    #[Route('/movies', methods: ['GET'], name: 'movies')]
     public function index(): Response
     {
-        $repository = $this->em->getRepository(Movie::class);
-        // $movies = $repository->getClassName();
-        //find all movies from the repository
-        $movies = $repository->findAll();
+        // $repository = $this->em->getRepository(Movie::class);
+        // // $movies = $repository->getClassName();
+        // //find all movies from the repository
+        // $movies = $repository->findAll();
 
-        //similar to var dump - dump&die helper function
-        dd($movies);
+        // //similar to var dump - dump&die helper function
+        // dd($movies);
 
-        return $this->render('index.html.twig');
+        $movies = $this->movieRepository->findAll();
+
+        return $this->render('movies/index.html.twig', [
+            'movies' => $movies
+        ]);
+    }
+
+    //single movie route
+    #[Route('/movies/{id}', methods: ['GET'], name: 'show_movie')]
+    public function show($id): Response
+    {
+        $movie = $this->movieRepository->find($id);
+        
+        return $this->render('movies/show.html.twig', [
+            'movie' => $movie
+        ]);
     }
 }
