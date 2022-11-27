@@ -119,3 +119,11 @@ Add `enablePostCssLoader` in webpack.config.js
 All new tailwind classes will be compiled in public>build>app.css
 
 
+### Adding images in the twig template
+`npm install -file-loader --save-dev`
+create images folder inside `assets`
+Add copyImages method inside webpack.config
+`npm run dev`: compile assets
+
+
+
