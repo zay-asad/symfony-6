@@ -127,5 +127,12 @@ Add copyImages method inside webpack.config
 `npm run dev`: compile assets
 
 
+### Symfony forms
+`composer require symfony/form`
+Creating a new form: `symfony console make:form MovieFormType Movie` where `Movie` is the model associated to it. This will also need to be adjusted depeneding on your needs.
+Create a new route inside `MoviesController` && a new view `create.html.twig`
+`composer require symfony/mime`: required for image path validation
+
+
 
 

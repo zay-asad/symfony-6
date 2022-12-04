@@ -4,11 +4,14 @@ namespace App\Controller;
 
 use App\Entity\Actor;
 use App\Entity\Movie;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Form\MovieFormType;
 use App\Repository\MovieRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class MoviesController extends AbstractController
 {
@@ -71,6 +74,45 @@ class MoviesController extends AbstractController
         return $this->render('movies/index.html.twig', [
             'movies' => $movies
         ]);
+    }
+    
+    //create a new movie
+    #[Route('/movies/create', name: 'create_movie')]
+    public function create(Request $request): Response
+    {
+        $movie = new Movie;
+        $form = $this->createForm(MovieFormType::class, $movie);
+
+        //access values that user submits through the form.
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $newMovie = $form->GetData();
+            // dd(newMovie);
+            // exit;
+            $imagePath = $form->get('imagePath')->getData();
+            if($imagePath) {
+                $newFileName = uniqid() . '.' . $imagePath->guessExtension();
+
+                try {
+                    $imagePath->move( //move image path
+                        $this->getParameter('kernel.project_dir') . '/public/uploads', 
+                        $newFileName
+                );
+            } catch (FileException $e) {
+                return new Response ($e->getMessage());
+            }
+            $newMovie->setImagePath('/uploads/' . $newFileName);
+        }
+
+        $this->em->persist($newMovie); //persist & flush
+        $this->em->flush();
+        return $this->redirectToRoute('movies');
+    }
+
+        return $this->render('movies/create.html.twig', [
+            'form' => $form->createView()
+        ]);
+
     }
 
     //single movie route
