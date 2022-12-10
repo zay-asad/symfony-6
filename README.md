@@ -70,7 +70,7 @@ The Controller – acts as an interface between the Model & The View to process 
 
 - Now we need to tell Doctrine to migrate the entities. This can be done via the following command: 
 `symfony console make:migration`
-`symfony console make:migrations:migrate`
+`symfony console doctrine:migrations:migrate`
 
 - Once the migration is completed, the DB should be updated with the new tables.
 
@@ -140,6 +140,19 @@ Add this:
 `composer require symfony/validator doctrine/annotations`
 https://symfony.com/doc/current/reference/constraints.html 
 
+### Symfony Authentication
+`composer require symfony/security-bundle`
+`symfony console make:user <name_of_user_class>`
+
+- Now we need to tell Doctrine to migrate the entities. This can be done via the following command: 
+`symfony console make:migration`
+`symfony console doctrine:migrations:migrate`
+
+- Creating a registration form
+`symfony console make:registration-form`
+- Creating login functionality
+`symfony console make:auth`
 
 
-
+### Restrict pages
+This can be done inside the twig template by adding an if && tweaking access control *security.yml*
