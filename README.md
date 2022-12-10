@@ -133,6 +133,13 @@ Creating a new form: `symfony console make:form MovieFormType Movie` where `Movi
 Create a new route inside `MoviesController` && a new view `create.html.twig`
 `composer require symfony/mime`: required for image path validation
 
+### Symfony input validation
+This can be done by adding something like this in the property annotation e.g. `#[Assert\NotBlank]`
+Add this:
+`use Symfony\Component\Validator\Constraints as Assert`
+`composer require symfony/validator doctrine/annotations`
+https://symfony.com/doc/current/reference/constraints.html 
+
 
 
 
